@@ -153,6 +153,9 @@ protected:
   bool HasETE = false;
   bool HasTRBE = false;
 
+  // If true, read thread pointer from __aarch64_read_tp.
+  bool ReadTpSoft = false;
+
   // HasZeroCycleRegMove - Has zero-cycle register mov instructions.
   bool HasZeroCycleRegMove = false;
 
@@ -401,6 +404,8 @@ public:
   bool hasSVE2SM4() const { return HasSVE2SM4; }
   bool hasSVE2SHA3() const { return HasSVE2SHA3; }
   bool hasSVE2BitPerm() const { return HasSVE2BitPerm; }
+
+  bool IsReadTPSoft() const { return ReadTpSoft; }
 
   bool isLittleEndian() const { return IsLittle; }
 

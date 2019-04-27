@@ -365,6 +365,9 @@ def FeatureTaggedGlobals : SubtargetFeature<"tagged-globals",
     "true", "Use an instruction sequence for taking the address of a global "
     "that allows a memory tag in the upper address bits">;
 
+def FeatureReadTp : SubtargetFeature<"read-tp-soft", "ReadTpSoft",
+    "true", "Read thread pointer from __aarch64_read_tp" >;
+
 //===----------------------------------------------------------------------===//
 // Architectures.
 //
