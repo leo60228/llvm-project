@@ -615,11 +615,9 @@ bool AArch64ExpandPseudo::expandMI(MachineBasicBlock &MBB,
   }
 
   case AArch64::GETbaseTLSsoft: {
-    unsigned DstReg = MI.getOperand(0).getReg();
     MachineInstrBuilder MIB =
         BuildMI(MBB, MBBI, MI.getDebugLoc(), TII->get(AArch64::BL))
             .addExternalSymbol("__aarch64_read_tp")
-            .addReg(DstReg, RegState::Dead)
             .cloneMemRefs(MI);
     transferImpOps(MI, MIB, MIB);
     MI.eraseFromParent();
